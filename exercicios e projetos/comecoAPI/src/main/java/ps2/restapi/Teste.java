@@ -1,11 +1,12 @@
 import java.util.*;
 import static java.lang.System.out;
 
-public class Ihm {
-    private GerenciadorNomes gerenciador;
+public class Teste {
+    private Agenda1 agenda = new Agenda1();
+    private Nomes nomes ;
     private Scanner entrada = new Scanner(System.in);
-    public Ihm(GerenciadorNomes g){
-        gerenciador = g;
+    public Teste(Agenda a){
+        agenda = a;
     }
 
     public void dialogar() {
@@ -14,25 +15,17 @@ public class Ihm {
             out.println("\n MENU PRINCIPAL:");
             out.println("(1) Listar nomes");
             out.println("(2) Adicionar nome");
+            out.println("(2) Adicionar nome");
+            // outros metodos id etc
             out.println("(3) Sair");
             out.println("Escolha uma opção: ");
             String op = entrada.nextLine();
             switch(op) {
-                case "1": listar(); break;
-                case "2": adicionar(); break;
+                case "1": agenda.listar(); break;
+                case "2": agenda.adicionar(); break;
                 case "3": sair = true; break;
                 default: out.println("Opção inválida!");
             }
             out.println("Fim do programa!");
         }}
-        private void listar(){
-            List<String> nomes = gerenciador.obterNomes();
-            System.out.println("\n >> Lista dos nomes:");
-            for (String nome: nomes) { out.println(nome); }
-        }
-        private void adicionar(){
-            System.out.println("\n>> Digite o novo nome: ");
-            String novoNome = entrada.nextLine();
-            gerenciador.adicionarNome(novoNome);
-        }
     }
